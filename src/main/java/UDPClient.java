@@ -10,14 +10,11 @@
 import java.io.*;
 import java.net.*;
 
-import java.io.*;
-import java.net.*;
-
 public class UDPClient {
 
     public static void main(String args[]) {
-        final int serverPort = 2288; // UDP server port
-        final String serverHostname = "localhost"; // Server hostname
+        final int serverPort = 2288; // UDP server port according to my Student ID 12217588 last numbers on my student ID 88*
+        final String serverHostname = "localhost"; // Server hostname is local host 
         DatagramSocket socket = null;
 
         try {

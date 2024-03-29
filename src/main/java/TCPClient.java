@@ -20,18 +20,38 @@ public class TCPClient {
         }
     }
 
+    //This is my scanner Input used for clients to enter fitness club member details
     private static void enterMemberDetails(Scanner input, DataOutputStream out, DataInputStream in) throws IOException {
         System.out.println("Enter Details for member Number:");
         int memberNumber = input.nextInt();
-        input.nextLine(); // Consume newline character
+        input.nextLine(); // Consume newline to get data in next line 
         System.out.println("Enter Your First Name:");
         String memberFirstName = input.nextLine();
+        while (memberFirstName.isEmpty()) {
+            //print error  
+            System.out.println("ERROR Member First name cannot be blank");
+
+            System.out.println("Enter Your First Name");
+            memberFirstName = input.nextLine();
+        }
         System.out.println("Enter Your Last Name:");
         String memberLastName = input.nextLine();
+        while (memberLastName.isEmpty()) {
+            //print error  
+            System.out.println("ERROR Member Last name cannot be blank");
+
+            System.out.println("Enter Your Last Name");
+            memberLastName = input.nextLine();
+        }
         System.out.println("Enter Your Address:");
         String memberAddress = input.nextLine();
         System.out.println("Enter Your Phone Number:");
         String phoneNumber = input.nextLine();
+        // Validate phone number format
+        while (phoneNumber.length() != 10 || !phoneNumber.matches("\\d+")) {
+            System.out.println(" Enter Your Phone Number");
+            phoneNumber = input.nextLine();
+        }
 
         // Send data to the server
         out.writeInt(memberNumber);
