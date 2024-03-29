@@ -34,7 +34,7 @@ public class UDPClient {
             DatagramPacket responsePacket = new DatagramPacket(responseData, responseData.length);
             socket.receive(responsePacket);
             String response = new String(responsePacket.getData(), 0, responsePacket.getLength());
-            System.out.println("Received member details from server: " 
+            System.out.println("Received member details from server: "
                     + response);
         } catch (IOException e) {
             System.err.println("Error: " + e.getMessage());
