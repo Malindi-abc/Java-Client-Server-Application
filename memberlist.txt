@@ -2,3 +2,6 @@ Tom:Smith:120 Spenser Street:0424253235
 Linda:Carter:100 King Street:042353234322
 Malindi:Jayasinghe:787 Princes Highway:0401650210
 Kate:Bruce:45 Blackburn:0401435645
+Leeum:bonzai:41 Oakliegh:0401456854
+Anton:Zumpe:52 Heath Avanue:0401452654
+Anna:Grey:10 Little Englands:0401457854

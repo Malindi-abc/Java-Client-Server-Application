@@ -1,8 +1,6 @@
 
 import java.util.Scanner;
 import java.io.*;
-import static java.lang.System.in;
-import static java.lang.System.out;
 import java.net.*;
 
 /**
@@ -53,4 +51,3 @@ public class TCPClient {
         enterMemberDetails(input, out, in);
     }
 }
-
