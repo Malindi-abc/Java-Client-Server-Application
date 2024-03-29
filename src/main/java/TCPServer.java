@@ -50,13 +50,7 @@ class Connection extends Thread {
             String phoneNumber = in.readUTF();
 
             // Writing membership details to the file
-            writer.println("Received Membership Details for Client " + clientNumber + ":");
-            writer.println("Member Number: " + memberNumber);
-            writer.println("First Name: " + memberFirstName);
-            writer.println("Last Name: " + memberLastName);
-            writer.println("Address: " + memberAddress);
-            writer.println("Phone Number: " + phoneNumber);
-            writer.println(); // Add an empty line for separation
+            writer.println(memberFirstName + ":" + memberLastName + ":" + memberAddress + ":" + phoneNumber);
             
 
             // Send feedback to the client

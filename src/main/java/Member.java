@@ -1,20 +1,18 @@
+
+import java.io.Serializable;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
-
 /**
  *
  * @author malin
  */
-public class Member {
+public class Member implements Serializable {
 
     public static void main(String[] args) {
-       
+
     }
-    /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
     private int memberNumber;
     private String memberFirstName;
@@ -65,27 +63,23 @@ public class Member {
         this.memberAddress = memberAddress;
     }
 
-    public String getphoneNumber(){
+    public String getphoneNumber() {
         return phoneNumber;
     }
-    
-    public void setphoneNumber (String phoneNumber){
+
+    public void setphoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
- 
-      // Override toString method for easy printing
+
+    // Override toString method for easy printing
     @Override
     public String toString() {
-        return "Member{" +
-                "memberNumber=" + memberNumber +
-                ", memberfirstName='" + memberFirstName + '\'' +
-                ", memberLastName='" + memberLastName + '\'' +
-                ", memberAddress='" + memberAddress + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                '}';
+        return "Member{"
+                + "memberNumber=" + memberNumber
+                + ", memberfirstName='" + memberFirstName + '\''
+                + ", memberLastName='" + memberLastName + '\''
+                + ", memberAddress='" + memberAddress + '\''
+                + ", phoneNumber='" + phoneNumber + '\''
+                + '}';
     }
-    }
-
-
-
-
+}
