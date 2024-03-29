@@ -1,16 +1,10 @@
 
 import java.io.Serializable;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
 /**
- *
- * @author malin
+ * Represents a member of the fitness club.
  */
-public class Member implements Serializable{
-
-    
+public class Member implements Serializable {
 
     private int memberNumber;
     private String memberFirstName;
@@ -18,7 +12,7 @@ public class Member implements Serializable{
     private String memberAddress;
     private String phoneNumber;
 
-    // constructor 
+    // Constructor
     public Member(int memberNumber, String memberFirstName, String memberLastName, String memberAddress, String phoneNumber) {
         this.memberNumber = memberNumber;
         this.memberFirstName = memberFirstName;
@@ -27,45 +21,44 @@ public class Member implements Serializable{
         this.phoneNumber = phoneNumber;
     }
 
-    //setting up getters and setters 
-    public int getmemberNumber() {
+    // Getters and setters
+    public int getMemberNumber() {
         return memberNumber;
-
     }
 
-    public void setmemberNumber(int memberNumber) {
+    public void setMemberNumber(int memberNumber) {
         this.memberNumber = memberNumber;
     }
 
-    public String getmemberFirstName() {
+    public String getMemberFirstName() {
         return memberFirstName;
     }
 
-    public void setmemberFirstName(String memberFirstName) {
+    public void setMemberFirstName(String memberFirstName) {
         this.memberFirstName = memberFirstName;
     }
 
-    public String getmemberLastName() {
+    public String getMemberLastName() {
         return memberLastName;
     }
 
-    public void setmemberLastName(String memberLastName) {
+    public void setMemberLastName(String memberLastName) {
         this.memberLastName = memberLastName;
     }
 
-    public String getmemberAddress() {
+    public String getMemberAddress() {
         return memberAddress;
     }
 
-    public void setmemberAddress(String memberAddress) {
+    public void setMemberAddress(String memberAddress) {
         this.memberAddress = memberAddress;
     }
 
-    public String getphoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setphoneNumber(String phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -74,7 +67,7 @@ public class Member implements Serializable{
     public String toString() {
         return "Member{"
                 + "memberNumber=" + memberNumber
-                + ", memberfirstName='" + memberFirstName + '\''
+                + ", memberFirstName='" + memberFirstName + '\''
                 + ", memberLastName='" + memberLastName + '\''
                 + ", memberAddress='" + memberAddress + '\''
                 + ", phoneNumber='" + phoneNumber + '\''
