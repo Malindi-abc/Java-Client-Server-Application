@@ -1,6 +1,8 @@
 
 import java.util.Scanner;
 import java.io.*;
+import static java.lang.System.in;
+import static java.lang.System.out;
 import java.net.*;
 
 /**
@@ -9,60 +11,46 @@ import java.net.*;
  */
 public class TCPClient {
 
-    //declareing Variables 
-    private static int memberNumber;
-    private static String memberFirstName;
-    private static String memberLastName;
-    private static String memberAddress;
-    private static int phoneNumber;
-
     public static void main(String[] args) {
+        try (Socket socket = new Socket("localhost", 1188); DataInputStream in = new DataInputStream(socket.getInputStream()); DataOutputStream out = new DataOutputStream(socket.getOutputStream()); Scanner input = new Scanner(System.in)) {
 
-        try {
-            // connecting to the server 
-            Socket socket = new Socket("localhost", 1188);
-            //creating input and output stream to communicate with the server 
-            DataInputStream in = new DataInputStream(socket.getInputStream());
-            DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+            // Call method to enter member details
+            enterMemberDetails(input, out, in);
 
-            //providing membership details to register for club membership
-            Scanner input = new Scanner(System.in);
-            System.out.println("Enter Detail for member number");
-            //getting inputs from client 
-            memberNumber = input.nextInt();
-            input.nextLine(); // this code will cosume as a new line 
-            System.out.println("Enter Your First Name");
-            //getting inputs from client 
-            memberFirstName = input.nextLine();
-            System.out.println("Enter Your Last Name");
-            //getting inputs from client 
-            memberLastName = input.nextLine();
-            System.out.println("Enter Your Address");
-            //getting inouts from client 
-            memberAddress = input.nextLine();
-            System.out.println("Enter Your Phone Number");
-            //getting inouts from client 
-            phoneNumber = input.nextInt();
-            System.out.println("Sending Data To Server");
-            String details = memberNumber + ": " + memberFirstName + ": " + memberLastName + ": " + memberAddress + ": " + phoneNumber;
-// Print the entered details
-            System.out.println("details");
-            
-            //send member details into the server 
-            out.writeInt(memberNumber);
-            out.writeUTF(memberFirstName);
-            out.writeUTF(memberLastName);
-            out.writeUTF(memberAddress);
-            out.writeInt(phoneNumber);
-
-            //receieving feedback from the server 
-            String feedback = in.readUTF();
-            System.out.println("Server Response " + feedback);
-
-// Close the socket
-            socket.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Error: " + e.getMessage());
         }
     }
+
+    private static void enterMemberDetails(Scanner input, DataOutputStream out, DataInputStream in) throws IOException {
+        System.out.println("Enter Details for member Number:");
+        int memberNumber = input.nextInt();
+        input.nextLine(); // Consume newline character
+        System.out.println("Enter Your First Name:");
+        String memberFirstName = input.nextLine();
+        System.out.println("Enter Your Last Name:");
+        String memberLastName = input.nextLine();
+        System.out.println("Enter Your Address:");
+        String memberAddress = input.nextLine();
+        System.out.println("Enter Your Phone Number:");
+        String phoneNumber = input.nextLine();
+
+        // Send data to the server
+        out.writeInt(memberNumber);
+        out.writeUTF(memberFirstName);
+        out.writeUTF(memberLastName);
+        out.writeUTF(memberAddress);
+        out.writeUTF(phoneNumber);
+
+        System.out.println("Sending Data to Server...");
+
+        // Receive feedback from the server
+        String feedback = in.readUTF();
+        System.out.println("Server Response: " + feedback);
+        System.out.println(".....................................");
+
+        // Call method recursively to enter details for another member
+        enterMemberDetails(input, out, in);
+    }
 }
+

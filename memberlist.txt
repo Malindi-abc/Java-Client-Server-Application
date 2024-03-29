@@ -1,0 +1,56 @@
+Received Membership Details:
+Member Number: 1
+First Name: Maleesha
+Last Name: Jayasinghe
+Address: 454 princes
+Phone Number: 667700
+
+Received Membership Details:
+Member Number: 1
+First Name: Maleesha
+Last Name: Jayasinghe
+Address: 656 oakliegh
+Phone Number: 0401460520
+
+Received Membership Details:
+Member Number: 1
+First Name: Maleesha
+Last Name: Jayasinghe
+Address: 686 Princes Highway
+Phone Number: 0401430654
+
+Received Membership Details:
+Member Number: 1
+First Name: Maleesha
+Last Name: Jayasinghe
+Address: 656 Oakliegh
+Phone Number: 040160501
+
+Received Membership Details:
+Member Number: 1
+First Name: Malindi
+Last Name: Jayasinghe
+Address: 616 Springvale
+Phone Number: 0401430564
+
+Received Membership Details:
+Member Number: 1
+First Name: Malindi
+Last Name: Jayasinghe
+Address: 656 princes highway
+Phone Number: 
+
+Received Membership Details:
+Member Number: 1
+First Name: Malindi
+Last Name: Jayasinghe
+Address: 656 Oakliegh
+Phone Number: 0401460210
+
+Received Membership Details for Client 1:
+Member Number: 1
+First Name: Malindi
+Last Name: Jayasinghe
+Address: 656 princes highway
+Phone Number: 040146021
+

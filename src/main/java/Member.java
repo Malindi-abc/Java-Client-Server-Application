@@ -20,10 +20,10 @@ public class Member {
     private String memberFirstName;
     private String memberLastName;
     private String memberAddress;
-    private int phoneNumber;
+    private String phoneNumber;
 
     // constructor 
-    public Member(int memberNumber, String memberFirstName, String memberLastName, String memberAddress, int phoneNumber) {
+    public Member(int memberNumber, String memberFirstName, String memberLastName, String memberAddress, String phoneNumber) {
         this.memberNumber = memberNumber;
         this.memberFirstName = memberFirstName;
         this.memberLastName = memberLastName;
@@ -65,11 +65,11 @@ public class Member {
         this.memberAddress = memberAddress;
     }
 
-    public int getphoneNumber(){
+    public String getphoneNumber(){
         return phoneNumber;
     }
     
-    public void setphoneNumber (int phoneNumber){
+    public void setphoneNumber (String phoneNumber){
         this.phoneNumber = phoneNumber;
     }
  

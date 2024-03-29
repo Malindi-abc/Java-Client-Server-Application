@@ -8,61 +8,70 @@ import java.io.*;
 
 public class TCPServer {
 
+    private static int clientCounter = 1; // Counter for clients
+
     public static void main(String args[]) {
+        final int serverPort = 1188; // Use the same port as specified in the assignment
         try {
-            int serverPort = 1188;
             ServerSocket listenSocket = new ServerSocket(serverPort);
-            System.out.println("Server started and now waiting for the client details");
+            System.out.println("Server started and now waiting for client details...");
+
             while (true) {
                 Socket clientSocket = listenSocket.accept();
-                Connection c = new Connection(clientSocket);
+                System.out.println("Receiving data from Client " + clientCounter);
+                Connection c = new Connection(clientSocket, clientCounter);
                 c.start();
+                clientCounter++; // Increment client counter for the next client
             }
         } catch (IOException e) {
-            System.out.println("Listen :" + e.getMessage());
+            System.err.println("Error starting the server: " + e.getMessage());
         }
     }
 }
-//This class is to be used by TcpServer class, not public.
 
 class Connection extends Thread {
 
     private Socket clientSocket;
-    
-    public Connection (Socket socket){
+    private int clientNumber;
+
+    public Connection(Socket socket, int clientNumber) {
         this.clientSocket = socket;
+        this.clientNumber = clientNumber;
     }
-    
 
     public void run() {
-        try{
-        DataInputStream in = new DataInputStream(clientSocket.getInputStream());
-        DataOutputStream out = new DataOutputStream(clientSocket.getOutputStream());
-        
-        // reading memebership Details from clients 
-        int memberNumber = in.readInt();
-        String memberFirstName = in.readUTF();
-        String memberLastName = in.readUTF();
-        String memberAddress = in.readUTF();
-        int phoneNumber = in.readInt();
-        
-        //sending membership details into a txt file 
-        
-         System.out.println("Received Membership Details:");
-            System.out.println("Member Number: " + memberNumber);
-            System.out.println("First Name: " + memberFirstName);
-            System.out.println("Last Name: " + memberLastName);
-            System.out.println("Address: " + memberAddress);
-            System.out.println("Phone Number: " + phoneNumber);
+        try (DataInputStream in = new DataInputStream(clientSocket.getInputStream()); DataOutputStream out = new DataOutputStream(clientSocket.getOutputStream()); PrintWriter writer = new PrintWriter(new FileWriter("memberlist.txt", true))) {
+
+            // Reading membership details from the client
+            int memberNumber = in.readInt();
+            String memberFirstName = in.readUTF();
+            String memberLastName = in.readUTF();
+            String memberAddress = in.readUTF();
+            String phoneNumber = in.readUTF();
+
+            // Writing membership details to the file
+            writer.println("Received Membership Details for Client " + clientNumber + ":");
+            writer.println("Member Number: " + memberNumber);
+            writer.println("First Name: " + memberFirstName);
+            writer.println("Last Name: " + memberLastName);
+            writer.println("Address: " + memberAddress);
+            writer.println("Phone Number: " + phoneNumber);
+            writer.println(); // Add an empty line for separation
+            
 
             // Send feedback to the client
-            out.writeUTF("Save Data of the member Number" + memberNumber);
-            
-            // Close the connection
-            clientSocket.close();
+            out.writeUTF("Save data of the member Number " + memberNumber);
+
+            System.out.println("....................................");
+
         } catch (IOException e) {
-            System.out.println("IO: " + e.getMessage());
+            System.err.println("Error handling client connection: " + e.getMessage());
+        } finally {
+            try {
+                clientSocket.close();
+            } catch (IOException e) {
+                System.err.println("Error closing client socket: " + e.getMessage());
+            }
         }
     }
 }
-
