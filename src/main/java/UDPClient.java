@@ -24,7 +24,7 @@ public class UDPClient {
             socket = new DatagramSocket();
 
             // Sending the request for member details
-            byte[] requestData = "GetMemberDetails".getBytes();
+            byte[] requestData = "memberlistObject".getBytes();
             InetAddress serverAddress = InetAddress.getByName(serverHostname);
             DatagramPacket requestPacket = new DatagramPacket(requestData, requestData.length, serverAddress, serverPort);
             socket.send(requestPacket);

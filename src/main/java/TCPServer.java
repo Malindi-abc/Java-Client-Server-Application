@@ -85,7 +85,7 @@ public class TCPServer {
                         System.err.println("Invalid member details: " + line);
                     }
                 }
-                System.out.println("Member details converted to Java objects and saved to memberObjects file.");
+
             } catch (IOException e) {
                 System.err.println("Error converting member details to Java objects: " + e.getMessage());
             }
