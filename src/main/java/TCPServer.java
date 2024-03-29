@@ -23,7 +23,7 @@ public class TCPServer {
                 clientCounter++;
             }
         } catch (IOException e) {
-            System.err.println("Error starting the server: " + e.getMessage());
+           
         }
     }
 
