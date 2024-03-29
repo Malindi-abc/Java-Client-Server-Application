@@ -8,11 +8,9 @@ import java.io.Serializable;
  *
  * @author malin
  */
-public class Member implements Serializable {
+public class Member implements Serializable{
 
-    public static void main(String[] args) {
-
-    }
+    
 
     private int memberNumber;
     private String memberFirstName;
