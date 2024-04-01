@@ -4,7 +4,7 @@ import java.net.*;
 
 public class UDPServer {
 
-    private static final int SERVER_PORT = 2288;
+    private static final int SERVER_PORT = 2288; //my last digits of Student ID 
     private static final String MEMBER_OBJECT_FILE = "C:\\Users\\malin\\Documents\\NetBeansProjects\\fitnessClub\\fitnessClub\\memberObjects";
 
     public static void main(String[] args) {

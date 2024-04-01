@@ -12,7 +12,7 @@ public class Member implements Serializable {
     private String memberAddress;
     private String phoneNumber;
 
-    // Constructor
+    // Constructor for member class 
     public Member(int memberNumber, String memberFirstName, String memberLastName, String memberAddress, String phoneNumber) {
         this.memberNumber = memberNumber;
         this.memberFirstName = memberFirstName;
@@ -21,7 +21,7 @@ public class Member implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
-    // Getters and setters
+    // Getters and setters to get and set member details
     public int getMemberNumber() {
         return memberNumber;
     }
@@ -62,7 +62,7 @@ public class Member implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
-    // Override toString method for easy printing
+    // Override toString
     @Override
     public String toString() {
         return "Member{"

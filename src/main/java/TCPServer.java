@@ -7,7 +7,7 @@ import java.util.TimerTask;
 public class TCPServer {
 
     private static int clientCounter = 1;
-    private static final int SERVER_PORT = 1188;
+    private static final int SERVER_PORT = 1188; //my last didgit of student ID
 
     public static void main(String[] args) {
         try (ServerSocket listenSocket = new ServerSocket(SERVER_PORT)) {

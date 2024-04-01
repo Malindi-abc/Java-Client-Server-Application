@@ -27,7 +27,7 @@ public class UDPClient {
             socket.send(requestPacket);
 
             // Receiving the response with member details
-            byte[] responseData = new byte[1024]; // Assuming response won't exceed 1024 bytes
+            byte[] responseData = new byte[1024]; 
             DatagramPacket responsePacket = new DatagramPacket(responseData, responseData.length);
             socket.receive(responsePacket);
             String response = new String(responsePacket.getData(), 0, responsePacket.getLength());

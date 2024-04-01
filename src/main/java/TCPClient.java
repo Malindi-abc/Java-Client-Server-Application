@@ -12,7 +12,7 @@ public class TCPClient {
     public static void main(String[] args) {
         try (Socket socket = new Socket("localhost", 1188); DataInputStream in = new DataInputStream(socket.getInputStream()); DataOutputStream out = new DataOutputStream(socket.getOutputStream()); Scanner input = new Scanner(System.in)) {
 
-            // Call method to enter member details
+            // Calling enterMemberDetails method to enter member details
             enterMemberDetails(input, out, in);
 
         } catch (IOException e) {
@@ -67,7 +67,7 @@ public class TCPClient {
         System.out.println("Server Response: " + feedback);
         System.out.println(".....................................");
 
-        // Call method recursively to enter details for another member
+        // Call method recursively to enter details for another member(Client)
         enterMemberDetails(input, out, in);
     }
 }
