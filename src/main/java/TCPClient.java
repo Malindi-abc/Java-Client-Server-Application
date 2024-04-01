@@ -49,7 +49,7 @@ public class TCPClient {
         String phoneNumber = input.nextLine();
         // Validate phone number format
         while (phoneNumber.length() != 10 || !phoneNumber.matches("\\d+")) {
-            System.out.println(" Enter Your Phone Number");
+            System.out.println(" Error : Enter Your 10 digit phone Number");
             phoneNumber = input.nextLine();
         }
 
